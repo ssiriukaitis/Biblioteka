@@ -1,15 +1,18 @@
 public class Book {
 
+    public static int counter = 0;
     private int id;
     private String title;
     private String genre;
     private int author_id;
 
     public Book() {
+        this.id = ++counter;
 
     }
 
     public Book(String title, String genre, int author_id) {
+        this.id = ++counter;
         this.title = title;
         this.genre = genre;
         this.author_id = author_id;

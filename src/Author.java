@@ -1,19 +1,20 @@
 import java.util.ArrayList;
 
 public class Author {
+    public static int counter = 0;
     private int id;
     private String name;
     private String surname;
     private ArrayList<Book> books;
 
     public Author() {
-
+        this.id = ++counter;
         this.books = new ArrayList<>();
 
     }
 
-    public Author(int id, String name, String surname) {
-        this.id = id;
+    public Author(String name, String surname) {
+        this.id = ++counter;
         this.name = name;
         this.surname = surname;
         this.books = new ArrayList<>();
@@ -52,9 +53,17 @@ public class Author {
         this.books = books;
     }
 
-    public void addBook(Book book){
+    public void addBook(Book book) {
         this.books.add(book);
     }
 
-
+    @Override
+    public String toString() {
+        return "Author{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", wrote "+ this.books.size() + " book(s)" +
+                '}';
+    }
 }
